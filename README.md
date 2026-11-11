@@ -1,21 +1,21 @@
-# 🗂️ @robert.tools/sample
+# 🗂️ @robert.tools/atom-button
 
-<description>
+null
 
 ## 📜 Usage
 
 ### 🟢 Installation
 
 ```bash
-npm install @robert.tools/sample
+npm install @robert.tools/atom-button
 ```
 
 ### 📝 Sample usage
 
 ```typescript
-import { <name> } from '@robert.tools/sample';
+import { atom-button } from '@robert.tools/atom-button';
 
-<name>('hello'); // '<name>: hello'
+atom-button('hello'); // 'atom-button: hello'
 ```
 
 ## 🗃️ commands
