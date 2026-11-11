@@ -5,10 +5,16 @@
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "exports": {
-        ".": "./dist/index.js"
+        ".": {
+            "default": "./dist/index.js"
+        },
+        "./index.njk": "./src/index.njk",
+        "./index.css": "./src/index.css"
     },
     "files": [
-        "dist"
+        "dist",
+        "src/index.njk",
+        "src/index.css"
     ],
     "scripts": {
         "init": "robi init",
