@@ -12,10 +12,33 @@ npm install @robert.tools/atom-button
 
 ### 📝 Sample usage
 
-```typescript
-import { atom-button } from '@robert.tools/atom-button';
+#### prerequisites
 
-atom-button('hello'); // 'atom-button: hello'
+- define css variables
+- safeParam installed (@robert.tools/eleventy-filter-safe-param)
+
+#### Template
+
+Use the button component as shown below:
+
+```html
+{{ component("atom/button", {}) }}
+```
+
+#### CSS
+
+Use the basic styling
+
+```css
+@import '@robert.tools/atom-button/src/index.css';
+```
+
+#### TypeScript
+
+Include TypeScript by importing the component
+
+```typescript
+import * as AtomButton from '@robert.tools/atom-button';
 ```
 
 ## 🗃️ commands
