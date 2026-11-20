@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.1
+
+### ⚙️ chore
+
+- fix description
+
 ## 1.0.0
 
 ### ⚙️ chore
