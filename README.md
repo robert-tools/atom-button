@@ -1,6 +1,6 @@
 # 🗂️ @robert.tools/atom-button
 
-null
+A button component
 
 ## 📜 Usage
 
