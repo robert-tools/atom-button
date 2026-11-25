@@ -21,13 +21,13 @@
 
 
 <button data-component="button.atom" 
-    {{CSS}}
-    {{FOCUSED}}
-    {{ARIA_LABEL}}
-    {{ARIA_HIDDEN}}
-    {{TARGET}}
-    {{TYPE}}
-    {{URL}}
+    {{CSS | safe}}
+    {{FOCUSED | safe}}
+    {{ARIA_LABEL | safe}}
+    {{ARIA_HIDDEN | safe}}
+    {{TARGET | safe}}
+    {{TYPE | safe}}
+    {{URL | safe}}
 
     {% if collapseID %}
         data-bs-toggle="{{ toggle_type }}"
@@ -35,7 +35,7 @@
         aria-controls="{{collapseID}}"
         aria-expanded="{{ collapse_show }}"
     {% endif %}
-    {{DISABLED}}
+    {{DISABLED | safe}}
 
 >
 {% if params.pre_html %}

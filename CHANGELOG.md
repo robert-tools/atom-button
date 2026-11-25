@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.1
+
+### 🐛 Bugfixes
+
+- add safe filter to attributes to fix rendering issues
+
 ## 1.1.0
 
 ### ⚙️ chore
