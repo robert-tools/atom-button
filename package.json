@@ -1,6 +1,6 @@
 {
     "name": "@robert.tools/atom-button",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "null",
     "main": "./dist/index.js",
     "types": "./dist/index.d.ts",

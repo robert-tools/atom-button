@@ -1,71 +1,48 @@
-{%
-    set collapseID =  params.collapseID
-%}
-{%
-    set collapseShow =  params.collapseShow if params.collapseShow is defined else ""
-%}
-{%
-    set class_css = params.class | safeParam()
-%}
-{% if params.class_modifier %}
-    {%
-        set class_css = class_css + params.class_modifier | safeParam()
-    %}
-{% endif %}
+{% set collapseID =  params.collapseID %}
+{% set collapse_show = 'true' if params.collapseShow == 'show' else 'false' %}
+{% set toggle_type = params.toggle_type if params.toggle_type is defined else "collapse" %}
+
+{# CSS classes and modifiers #}
+{% set class_css = params.class_css | safeParam() %}
+{% set class_modifier = params.class_modifier | safeParam() %}
+{% set final_class = (class_css ~ " " ~ class_modifier) | trim %}
+{% set CSS = final_class | addAttribute("class", final_class != "") %}
+
+{# attributes #}
+{% set FOCUSED = params.focusable | addAttribute("focusable") %}
+{% set ARIA_LABEL = params.aria_label | addAttribute("aria-label") %}
+{% set ARIA_HIDDEN = params.aria_hidden | addAttribute("aria-hidden") %}
+{% set TARGET = params.target | addAttribute("target") %} 
+{% set type_value = params.type if params.type is defined else "button" %}
+{% set url_value = "window.location.href='{{params.url | safe}}'" if params.url is defined else undefined %}
+{% set URL = url_value | addAttribute("onclick") %}
+{% set TYPE = type_value | addAttribute("type") %}
+{% set DISABLED = params.disabled | addAttribute("disabled", params.disabled == true, { keyOnly: true }) %}
+
+
 <button data-component="button.atom" 
-    class="{{class_css}}"
+    {{CSS}}
+    {{FOCUSED}}
+    {{ARIA_LABEL}}
+    {{ARIA_HIDDEN}}
+    {{TARGET}}
+    {{TYPE}}
+    {{URL}}
 
-    {#  focused #}
-    {% if params.focusable is defined %}
-        focusable="{{params.focusable}}"
-    {% endif %}
-
-    {#  aria-label #}
-    {% if params.aria_label is defined %}
-        aria-label="{{params.aria_label}}"
-    {% endif %}
-
-    {#  aria-hidden #}
-    {% if params.aria_hidden is defined %}
-        aria-hidden="{{params.aria_hidden}}"
-    {% endif %}
-
-    {#  target #}
-    {% if params.target is defined %}
-        target="{{params.target}}"
-    {% endif %}
-
-    {#  onclick url #}
-    {% if params.url is defined %}
-        onclick="window.location.href='{{params.url | safe}}'"
-    {% endif %}
-
-    {#  collapse #}
     {% if collapseID %}
-        data-bs-toggle="collapse"
+        data-bs-toggle="{{ toggle_type }}"
         data-bs-target="#{{collapseID}}"
-        aria-expanded="{{ 'true' if collapseShow == 'show' else 'false' }}"
         aria-controls="{{collapseID}}"
+        aria-expanded="{{ collapse_show }}"
     {% endif %}
-
-    {#  type #}
-    {% if params.type is defined %}
-        type="{{params.type}}"
-    {% else %}
-        type="button"
-    {% endif %}
-
-    {#  disabled #}
-    {% if params.disabled == true%}
-        disabled
-    {% endif %}
+    {{DISABLED}}
 
 >
 {% if params.pre_html %}
     {{params.pre_html | safe}}
 {% endif %} 
-{{params.text}}
-    {% if params.post_html %}
-        {{params.post_html | safe}}
-    {% endif %}
+{{params.text}} 
+{% if params.post_html %}
+    {{params.post_html | safe}}
+{% endif %}
 </button>

@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0
+
+### ⚙️ chore
+
+- refactor atom-button component to support easier attribute handling
+
+### ✨ improvements
+
+- added support for toggle_type parameter in atom-button component
+
 ## 1.0.1
 
 ### ⚙️ chore
