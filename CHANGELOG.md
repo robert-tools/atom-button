@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+### 🐛 Bugfixes
+
+- fix rendering issues by adding safe filter to attributes
+
 ## 1.1.1
 
 ### 🐛 Bugfixes
