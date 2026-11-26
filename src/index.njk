@@ -14,7 +14,7 @@
 {% set ARIA_HIDDEN = params.aria_hidden | addAttribute("aria-hidden") %}
 {% set TARGET = params.target | addAttribute("target") %} 
 {% set type_value = params.type if params.type is defined else "button" %}
-{% set url_value = "window.location.href='{{params.url | safe}}'" if params.url is defined else undefined %}
+{% set url_value = "window.location.href='" ~ params.url | safe ~ "'" if params.url is defined else undefined %}
 {% set URL = url_value | addAttribute("onclick") %}
 {% set TYPE = type_value | addAttribute("type") %}
 {% set DISABLED = params.disabled | addAttribute("disabled", params.disabled == true, { keyOnly: true }) %}
@@ -27,7 +27,7 @@
     {{ARIA_HIDDEN | safe}}
     {{TARGET | safe}}
     {{TYPE | safe}}
-    {{URL}}
+    {{URL | safe}}
 
     {% if collapseID %}
         data-bs-toggle="{{ toggle_type }}"

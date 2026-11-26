@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.3
+
+### 🐛 Bugfixes
+
+- fix clickable issue by adding safe filter to URL attribute
+
 ## 1.1.2
 
 ### 🐛 Bugfixes
